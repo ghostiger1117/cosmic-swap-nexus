@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,6 +53,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				saturn: {
+					DEFAULT: '#6E59A5',
+					dark: '#3A1D6E',
+					light: '#9b87f5',
+					gold: '#FFC977',
+					blue: '#1A1F2C',
+					accent: '#8B5CF6',
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -84,11 +93,38 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'glow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.6' }
+				},
+				'rotate-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'shimmer': {
+					'0%': { backgroundPosition: '-1000px 0' },
+					'100%': { backgroundPosition: '1000px 0' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'glow': 'glow 3s ease-in-out infinite',
+				'rotate-slow': 'rotate-slow 12s linear infinite',
+				'shimmer': 'shimmer 2s linear infinite'
+			},
+			backgroundImage: {
+				'space-gradient': 'linear-gradient(to bottom, #0f0f1f, #1A1F2C)',
+				'card-gradient': 'linear-gradient(to bottom right, rgba(110, 89, 165, 0.1), rgba(26, 31, 44, 0.2))',
+				'button-gradient': 'linear-gradient(to right, #6E59A5, #8B5CF6)',
+				'gold-gradient': 'linear-gradient(to right, #FFC977, #FFB84D)',
+				'star-pattern': 'radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px)'
 			}
 		}
 	},
