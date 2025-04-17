@@ -1,9 +1,8 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from "@/components/ui/button";
-import { ExternalLink, GitHub, Twitter, Users } from 'lucide-react';
+import { ExternalLink, Github, Twitter, Users } from 'lucide-react';
 
 const AboutSection = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <section className="mb-16">
@@ -52,7 +51,7 @@ const TeamMember = ({
           rel="noopener noreferrer"
           className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
         >
-          <GitHub size={16} />
+          <Github size={16} />
         </a>
       )}
     </div>
@@ -305,7 +304,7 @@ const About = () => {
                 <span>Follow on Twitter</span>
               </Button>
               <Button variant="outline" className="border-white/10 flex items-center space-x-2">
-                <GitHub size={16} />
+                <Github size={16} />
                 <span>View on GitHub</span>
               </Button>
               <Button variant="outline" className="border-white/10 flex items-center space-x-2">

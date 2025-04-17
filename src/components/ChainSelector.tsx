@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
-interface ChainOption {
+export interface ChainOption {
   id: string;
   name: string;
   icon: React.ReactNode;
