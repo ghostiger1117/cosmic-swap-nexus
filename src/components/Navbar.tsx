@@ -61,13 +61,23 @@ const Navbar = () => {
               <span>0x1a2...3b4c</span>
             </Button>
           ) : (
-            <Button 
-              onClick={connectWallet} 
-              className="ml-4 cosmic-button flex items-center space-x-2"
-            >
-              <Wallet size={16} />
-              <span>Connect Wallet</span>
-            </Button>
+            <>
+              <Link to="/signin" className="px-3 py-2 text-sm rounded-lg hover:bg-white/5 transition-colors">
+                Sign In
+              </Link>
+              <Link to="/signup">
+                <Button variant="outline" className="border-white/10 hover:bg-white/5">
+                  Sign Up
+                </Button>
+              </Link>
+              <Button 
+                onClick={connectWallet} 
+                className="ml-4 cosmic-button flex items-center space-x-2"
+              >
+                <Wallet size={16} />
+                <span>Connect Wallet</span>
+              </Button>
+            </>
           )}
         </div>
 
@@ -111,13 +121,21 @@ const Navbar = () => {
               <span>0x1a2...3b4c</span>
             </Button>
           ) : (
-            <Button 
-              onClick={connectWallet} 
-              className="w-full cosmic-button flex items-center justify-center space-x-2"
-            >
-              <Wallet size={16} />
-              <span>Connect Wallet</span>
-            </Button>
+            <>
+              <Link to="/signin" className="block px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">
+                Sign In
+              </Link>
+              <Link to="/signup" className="block px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">
+                Sign Up
+              </Link>
+              <Button 
+                onClick={connectWallet} 
+                className="w-full cosmic-button flex items-center justify-center space-x-2"
+              >
+                <Wallet size={16} />
+                <span>Connect Wallet</span>
+              </Button>
+            </>
           )}
         </div>
       )}
