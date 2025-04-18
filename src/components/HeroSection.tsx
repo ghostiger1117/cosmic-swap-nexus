@@ -3,15 +3,20 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
-import ChainSelector from './ChainSelector';
+import ChainSelector, { ChainOption } from './ChainSelector';
 
 const HeroSection = () => {
   const navigate = useNavigate();
-  const [selectedChain, setSelectedChain] = useState({
+  const [selectedChain, setSelectedChain] = useState<ChainOption>({
     id: 'ethereum',
     name: 'Ethereum',
     icon: <span className="text-blue-400">⟠</span>
   });
+
+  // This function properly handles ChainOption
+  const handleChainChange = (chain: ChainOption) => {
+    setSelectedChain(chain);
+  };
 
   return (
     <div className="relative z-10 pt-20 pb-32 overflow-hidden">
@@ -25,7 +30,7 @@ const HeroSection = () => {
           <div className="absolute top-0 right-4 md:right-10">
             <ChainSelector 
               selectedChain={selectedChain} 
-              onChainChange={setSelectedChain} 
+              onChainChange={handleChainChange} 
             />
           </div>
           

@@ -1,9 +1,8 @@
-
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import LiquidityPoolCard from '@/components/LiquidityPoolCard';
-import ChainSelector from '@/components/ChainSelector';
+import ChainSelector, { ChainOption } from '@/components/ChainSelector';
 import { Button } from "@/components/ui/button";
 import { PlusCircle, Search, SlidersHorizontal } from 'lucide-react';
 import { Input } from "@/components/ui/input";
@@ -62,7 +61,7 @@ const allPools = [
 ];
 
 const Pools = () => {
-  const [selectedChain, setSelectedChain] = useState({
+  const [selectedChain, setSelectedChain] = useState<ChainOption>({
     id: 'ethereum',
     name: 'Ethereum',
     icon: <span className="text-blue-400">⟠</span>
@@ -70,13 +69,15 @@ const Pools = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('apr');
 
-  // Filter pools by search query
+  const handleChainChange = (chain: ChainOption) => {
+    setSelectedChain(chain);
+  };
+
   const filteredPools = allPools.filter(pool => 
     pool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     pool.symbols.some(symbol => symbol.toLowerCase().includes(searchQuery.toLowerCase()))
   );
 
-  // Sort pools by selected criteria
   const sortedPools = [...filteredPools].sort((a, b) => {
     if (sortBy === 'apr') return b.apr - a.apr;
     if (sortBy === 'tvl') return parseFloat(b.tvl.slice(1, -1)) - parseFloat(a.tvl.slice(1, -1));
@@ -103,7 +104,7 @@ const Pools = () => {
               </Button>
               <ChainSelector 
                 selectedChain={selectedChain} 
-                onChainChange={setSelectedChain} 
+                onChainChange={handleChainChange} 
               />
             </div>
           </div>

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import TokenSwapCard from '@/components/TokenSwapCard';
-import ChainSelector from '@/components/ChainSelector';
+import ChainSelector, { ChainOption } from '@/components/ChainSelector';
 import CoinChartCard from '@/components/CoinChartCard';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Settings, Clock, Wallet, Info } from 'lucide-react';
@@ -51,11 +51,16 @@ const transactions = [
 ];
 
 const Swap = () => {
-  const [selectedChain, setSelectedChain] = useState({
+  const [selectedChain, setSelectedChain] = useState<ChainOption>({
     id: 'ethereum',
     name: 'Ethereum',
     icon: <span className="text-blue-400">⟠</span>
   });
+
+  // This function properly handles ChainOption
+  const handleChainChange = (chain: ChainOption) => {
+    setSelectedChain(chain);
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -76,7 +81,7 @@ const Swap = () => {
               </Button>
               <ChainSelector 
                 selectedChain={selectedChain} 
-                onChainChange={setSelectedChain} 
+                onChainChange={handleChainChange} 
               />
             </div>
           </div>
